@@ -4,7 +4,7 @@ define('DB_Host', 'localhost');
 define('DB_User', 'root');
 define('DB_Pass', '');
 define('DB_Name', 'sinemkt');
-define('DB_port', '3307');
+define('DB_port', '3306');
 
 // App root
 

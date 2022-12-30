@@ -1,5 +1,5 @@
-        <!-- clients strat -->
-        <section id="clients" class="clients">
+    <!-- clients strat -->
+    <section id="clients" class="clients">
         <div class="container">
             <div class="owl-carousel owl-theme" id="client">
                 <div class="item">
@@ -184,8 +184,7 @@
 
         <div id="scroll-Top">
             <div class="return-to-top">
-                <i class="fa fa-angle-up " id="scroll-top" data-toggle="tooltip" data-placement="top" title=""
-                    data-original-title="Back to Top" aria-hidden="true"></i>
+                <i class="fa fa-angle-up " id="scroll-top" data-toggle="tooltip" data-placement="top" title="" data-original-title="Back to Top" aria-hidden="true"></i>
             </div>
 
         </div>
@@ -213,10 +212,16 @@
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-
+<!-- Bootstrap JavaScript -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
     <!--Custom JS-->
     <script src="http://localhost/New-sinemkt/public/js/custom.js"></script>
+
+    <script type="text/javascript" src="http://localhost/New-sinemkt/public/js/js.js"></script>
+    <?php if (isset($_GET["error"])) {
+        echo "<script type='text/javascript'>alert('Username or Password invalide')</script>";
+    } ?>
 
 </body>
 

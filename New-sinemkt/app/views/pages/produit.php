@@ -1,7 +1,7 @@
 
 
 <?php
-$pdo = new PDO("mysql:host=localhost;port=3307;dbname=sinemkt", 'root','');
+$pdo = new PDO("mysql:host=localhost;port=3306;dbname=sinemkt", 'root','');
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 $show = 'SELECT * FROM produits ';

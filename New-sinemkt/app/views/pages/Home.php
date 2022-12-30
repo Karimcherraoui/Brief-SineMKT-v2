@@ -5,64 +5,10 @@
 
 
 
-<!doctype html>
-<html class="no-js" lang="en">
+<?php
+include APPROOT . '\views\inc\header.php';
 
-<head>
-    <!-- meta data -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="FURNITURE Le Top du mobilier et de la décoration au Monde. Meubles, décoration, ameublement, chaise, table, lit, chambre à coucher, fauteuil, salon, canapé." />
-    <meta name="keywords" content="FURNITURE Le Top du mobilier et de la décoration au Monde. Meubles, décoration, ameublement, chaise, table, lit, chambre à coucher, fauteuil, salon, canapé." />
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
-    <!--font-family-->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
-
-    <!-- title of site -->
-    <title>Furniture</title>
-
-    <!-- For favicon png -->
-    <link rel="shortcut icon" type="image/icon" href="http://localhost/New-sinemkt/public/logo/favicon.png" />
-
-    <!--font-awesome.min.css-->
-    <link rel="stylesheet" href="http://localhost/New-sinemkt/public/css/font-awesome.min.css">
-
-    <!--linear icon css-->
-    <link rel="stylesheet" href="http://localhost/New-sinemkt/public/css/linearicons.css">
-
-    <!--animate.css-->
-    <link rel="stylesheet" href="http://localhost/New-sinemkt/public/css/animate.css">
-
-    <!--owl.carousel.css-->
-    <link rel="stylesheet" href="http://localhost/New-sinemkt/public/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="http://localhost/New-sinemkt/public/css/owl.theme.default.min.css">
-
-    <!--bootstrap.min.css-->
-    <link rel="stylesheet" href="http://localhost/New-sinemkt/public/css/bootstrap.min.css">
-
-    <!-- bootsnav -->
-    <link rel="stylesheet" href="http://localhost/New-sinemkt/public/css/bootsnav.css">
-
-    <!--style.css-->
-    <link rel="stylesheet" href="http://localhost/New-sinemkt/public/css/style.css">
-
-    <!--responsive.css-->
-    <link rel="stylesheet" href="http://localhost/New-sinemkt/public/css/responsive.css">
-    <link rel="stylesheet" href="http://localhost/New-sinemkt/public/css/karim.css">
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-
-    <!--[if lt IE 9]>
-			<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        <![endif]-->
-
-</head>
-
-<body>
+?>
     <!--[if lte IE 9]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
         <![endif]-->
@@ -339,32 +285,12 @@
                                 </li>
                                 <!--/.dropdown-->
                                 <li class="nav-login">
-                                    <a href="#"><span class="lnr lnr-user"></span></a>
+                                    <a href="../users/login"><span class="lnr lnr-user"></span></a>
                                 </li>
                             </ul>
                         </div>
                         <!--/.attr-nav-->
                         <!-- End Atribute Navigation -->
-
-
-
-                        <form class="sign-box" action="GestionProduct.php" method="post">
-                            <div class="signinform">
-                                <h3>Login</h3>
-                                <p>Login to access your management account</p>
-                                <div class="inputboite">
-                                    <input type="text" name="user" placeholder="Username" />
-                                </div>
-                                <div class="inputboite">
-                                    <input type="password" name="pass" placeholder="Password" require />
-                                </div>
-                                <div class="inputboite connect-btn">
-                                    <button type="submit" name="submit" class="connect">Connect</button>
-                                </div>
-                            </div>
-                        </form>
-
-
 
 
                         <!-- Start Header Navigation -->

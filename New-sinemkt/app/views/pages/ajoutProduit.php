@@ -1,6 +1,4 @@
-<?php
-include APPROOT . '\views\inc\header.php';
-?>
+<?php include APPROOT . '\views\inc\header.php';?>
 
 
 <section class = "mt-2" style="margin: 150px 400px;" >
@@ -18,30 +16,7 @@ include APPROOT . '\views\inc\header.php';
     </div>
     
 </section>
-<?php
-$pdo = new PDO("mysql:host=localhost;port=3307;dbname=sinemkt", 'root','');
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-if(isset($_POST['produitname'])){
-$name = $_POST['produitname'];
-$prix = $_POST['produitprix'];
-$img = $_POST['img'];
-$qte = $_POST['quantiteproduit'];
 
-$ins = "INSERT INTO `produits` (`Name`, `prix`, `image`, `qteStock`) VALUES ('$name','$prix','$img','$qte')";
-$exe = $pdo->prepare($ins);
-$exe->execute();
-
-echo '<script type="text/JavaScript"> 
-alert("Product ajouté par sucess");
-</script>';
-
-header('Location: http://localhost/new-sinemkt/pages/produit');
-}
-
-?>
-
-<?php
-include APPROOT . '\views\inc\footer.php';
-?>
+<?php include APPROOT . '\views\inc\footer.php'; ?>
 

@@ -9,6 +9,8 @@ class Pages extends Controller
 
     public function index()
     {
+        // $posts = $this->postmodel->getPosts();
+        //  $data = ['posts' => $posts];
         $this->view('pages/Home');
     }
 
@@ -42,16 +44,24 @@ class Pages extends Controller
     {
         $this->view('pages/produit');
     }
+    public function login()
+    {
+        $this->view('users/login');
+    }
+    
+   
+    
+
     public function modifierProduit()
     {
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $pdo = new PDO("mysql:host=localhost;port=3307;dbname=sinemkt", 'root', '');
+            $pdo = new PDO("mysql:host=localhost;port=3306;dbname=sinemkt", 'root', '');
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $id = $_POST['id'];
             if (isset($_POST['produitname']) && $_POST['id']) {
                 $name = $_POST['produitname'];
-                $prix = $_POST['produitprix'];
+                $prix = $_POST['prix'];
                 $img = $_POST['img'];
                 $qte = $_POST['quantiteproduit'];
 
@@ -77,7 +87,7 @@ class Pages extends Controller
     {
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $pdo = new PDO("mysql:host=localhost;port=3307;dbname=sinemkt", 'root', '');
+            $pdo = new PDO("mysql:host=localhost;port=3306;dbname=sinemkt", 'root', '');
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $id = $_POST['id'];
             echo $id;
@@ -94,7 +104,7 @@ class Pages extends Controller
     public function ajoutProduit()
     {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $pdo = new PDO("mysql:host=localhost;port=3307;dbname=sinemkt", 'root', '');
+            $pdo = new PDO("mysql:host=localhost;port=3306;dbname=sinemkt", 'root', '');
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
             if (isset($_POST['produitname'])) {
