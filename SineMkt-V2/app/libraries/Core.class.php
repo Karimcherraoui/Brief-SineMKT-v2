@@ -9,7 +9,7 @@
 
 class Core {
 
-    protected $currentController = 'pages';
+    protected $currentController = 'Pages';
 
     protected $currentMethod = 'index';
 

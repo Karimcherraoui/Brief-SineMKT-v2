@@ -3,7 +3,7 @@ class Admins extends Controller {
     private $userModel;
 public function __construct()
 {
-    $this->userModel = $this->model('admin');
+    $this->userModel = $this->model('Admin');
 }
 
 public function login (){
@@ -31,10 +31,13 @@ public function login (){
             $data['password_err'] = 'Password is required';
         }
          //check username/password
-         if($this->userModel->findUserByUsername($data['username'])){
+         if(!$this->userModel->findUserByUsername($data['username'])){
             // user found
-         }else{
-            $data['username_err'] = 'Username or Password not correct';
+            $data['username_err'] = 'Username not correct';
+         }
+         if(!$this->userModel->findUserByPassword($data['password'])){
+            // user found
+            $data['password_err'] = 'Password not correct';
          }
         
         // check for errors
@@ -42,6 +45,8 @@ public function login (){
             //validated
             // for hash password
             // $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+            //$this->view('pages/produit', $data);
+            $this->createUserSession($this->userModel->login($_POST["username"], $_POST["password"]));
         
         } else {
             //load view with errors 
@@ -60,4 +65,19 @@ public function login (){
 
     }
  }
+ public function createUserSession($user){
+
+    $_SESSION['user_id'] = $user->id;
+    $_SESSION['user_username'] = $user->username;
+
+    redirect('Pages/produit');
+}
+
+public function logout(){
+    unset($_SESSION['user_id']);
+    unset($_SESSION['user_username']);
+    session_destroy();
+    redirect('Pages/index');
+
+}
 }

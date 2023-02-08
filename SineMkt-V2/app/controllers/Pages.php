@@ -2,6 +2,8 @@
 
 class Pages extends Controller
 {
+
+    protected $postmodel;
     public function __construct()
     {
         $this->postmodel = $this->model('Post');
@@ -46,30 +48,43 @@ class Pages extends Controller
     }
     public function login()
     {
+
+
+
+
+
         $this->view('users/login');
     }
-    
-   
-    
+
+
+
 
     public function modifierProduit()
     {
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $pdo = new PDO("mysql:host=localhost;port=3306;dbname=sinemkt", 'root', '');
+            $pdo = new PDO("mysql:host=localhost;dbname=sinemkt", 'root', '123456');
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $id = $_POST['id'];
             if (isset($_POST['produitname']) && $_POST['id']) {
                 $name = $_POST['produitname'];
                 $prix = $_POST['prix'];
-                $img = $_POST['img'];
+                // $img = $_POST['img'];
                 $qte = $_POST['quantiteproduit'];
-
-                $update = "UPDATE `produits` SET `Name` = '$name', `prix` = '$prix' , `image` = '$img' , `qteStock` = '$qte'  
+                
+                $temp_file = $_FILES['img']['tmp_name'];
+                if(empty($temp_file)){
+                    
+                    $target_file = $_FILES['img']['name'];
+                    if (move_uploaded_file($temp_file, '/var/www/html/New-sinemkt/Public/upload/' . $target_file))
+                    $img = $target_file;
+                    
+                    $update = "UPDATE `produits` SET `Name` = '$name', `prix` = '$prix' , `qteStock` = '$qte'  
                     WHERE id = {$id} ";
 
-                $exe = $pdo->prepare($update);
-                $exe->execute();
+$exe = $pdo->prepare($update);
+$exe->execute();
+}
 
                 echo '<script type="text/JavaScript"> 
                 alert("Product ajouté par sucess");
@@ -87,7 +102,7 @@ class Pages extends Controller
     {
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $pdo = new PDO("mysql:host=localhost;port=3306;dbname=sinemkt", 'root', '');
+            $pdo = new PDO("mysql:host=localhost;dbname=sinemkt", 'root', '123456');
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $id = $_POST['id'];
             echo $id;
@@ -95,7 +110,7 @@ class Pages extends Controller
             $exe = $pdo->prepare($del);
             $exe->execute();
 
-            header('Location: http://localhost/new-sinemkt/pages/produit');
+            header('Location: http://localhost/New-sinemkt/Pages/produit');
         } else {
             $this->view('pages/deleteProduit');
         }
@@ -103,15 +118,28 @@ class Pages extends Controller
 
     public function ajoutProduit()
     {
+
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $pdo = new PDO("mysql:host=localhost;port=3306;dbname=sinemkt", 'root', '');
+            $pdo = new PDO("mysql:host=localhost;dbname=sinemkt", 'root', '123456');
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            if (isset($_POST['produitname'])) {
+            echo '<pre>';
+            var_dump($_FILES);
+            echo '</pre>';
+
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $name = $_POST['produitname'];
                 $prix = $_POST['produitprix'];
-                $img = $_POST['img'];
+                // $img = $_POST['img'];
+
                 $qte = $_POST['quantiteproduit'];
+                $temp_file = $_FILES['img']['tmp_name'];
+                $target_file = $_FILES['img']['name'];
+                if (move_uploaded_file($temp_file, '/var/www/html/New-sinemkt/Public/upload/' . $target_file))
+                    $img = $target_file;
+
+
+                
 
                 $ins = "INSERT INTO `produits` (`Name`, `prix`, `image`, `qteStock`) VALUES ('$name','$prix','$img','$qte')";
                 $exe = $pdo->prepare($ins);
@@ -119,7 +147,7 @@ class Pages extends Controller
 
                 echo '<script type="text/JavaScript"> alert("Product ajouté par sucess"); </script>';
 
-                header('Location: http://localhost/new-sinemkt/pages/produit');
+                header('Location: http://localhost/New-sinemkt/pages/produit');
             }
         } else {
 

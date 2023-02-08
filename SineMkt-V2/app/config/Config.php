@@ -2,9 +2,9 @@
 // Data-base Params
 define('DB_Host', 'localhost');
 define('DB_User', 'root');
-define('DB_Pass', '');
+define('DB_Pass', '123456');
 define('DB_Name', 'sinemkt');
-define('DB_port', '3306');
+
 
 // App root
 
@@ -13,7 +13,7 @@ define('PUBLIC', dirname(APPROOT));
 
 // URL Root
 
-define('URLROOT', 'http://localhost/new-sinemkt');
+define('URLROOT', 'http://localhost/New-sinemkt');
 
 // Site Name
 

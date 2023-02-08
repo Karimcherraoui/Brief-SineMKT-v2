@@ -1,12 +1,12 @@
 <?php
-include APPROOT . '\views\inc\header.php';
+include APPROOT . '/views/inc/header.php';
 ?>
 
 
 
 
 <?php
-      $pdo = new PDO("mysql:host=localhost;port=3306;dbname=sinemkt", 'root','');
+      $pdo = new PDO("mysql:host=localhost;dbname=sinemkt", 'root','123456');
       $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $id = $_GET['id'];
     echo $id;
@@ -22,5 +22,5 @@ include APPROOT . '\views\inc\header.php';
 
 
 <?php
-include APPROOT . '\views\inc\footer.php';
+include APPROOT . '/views/inc/footer.php';
 ?>
